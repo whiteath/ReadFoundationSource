@@ -3004,8 +3004,11 @@ SInt32 CFRunLoopRunSpecific(CFRunLoopRef rl, CFStringRef modeName, CFTimeInterva
     
     if (currentMode->_observerMask & kCFRunLoopEntry ) __CFRunLoopDoObservers(rl, currentMode, kCFRunLoopEntry);
     
+    
     // 真正去 run
     result = __CFRunLoopRun(rl, currentMode, seconds, returnAfterSourceHandled, previousMode);
+    
+    
     
     if (currentMode->_observerMask & kCFRunLoopExit ) __CFRunLoopDoObservers(rl, currentMode, kCFRunLoopExit);
     
